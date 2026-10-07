@@ -1,0 +1,35 @@
+<div id="cart" style="width: 300px">
+  <h2>Płatność</h2>
+  <input type="text" placeholder="Imię" required />
+  <input type="text" placeholder="Nazwisko" required />
+  <input type="text" placeholder="Adres dostawy" required />
+
+  <label style="cursor: pointer">
+    <input
+      type="radio"
+      name="method"
+      [checked]="paymentMethod === 'blik'"
+      (change)="paymentMethod = 'blik'"
+      required
+    />
+    BLIK
+  </label>
+  <label style="cursor: pointer">
+    <input
+      type="radio"
+      name="method"
+      [checked]="paymentMethod === 'card'"
+      (change)="paymentMethod = 'card'"
+      required
+    />
+    Karta
+  </label>
+
+  @if (paymentMethod === 'blik') {
+    <input type="text" placeholder="Kod blik" />
+  } @else {
+    <input type="text" placeholder="Numer karty" />
+  }
+
+  <button id="addBtn" (click)="pay()" style="margin-top: 10px">Zapłać</button>
+</div>

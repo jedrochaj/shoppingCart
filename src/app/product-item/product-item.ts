@@ -4,13 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-product-item',
   styleUrl: '../app.scss',
   imports: [],
-  template: `
-    <div id="product">
-      <h3>{{ product?.name }}</h3>
-      <p>Cena: {{ product?.price }} zł</p>
-      <button id="addBtn" (click)="onAddToCart()">Dodaj do koszyka</button>
-    </div>
-  `,
+  templateUrl: 'product-item.html',
 })
 export class ProductItem {
   @Input() product: any;

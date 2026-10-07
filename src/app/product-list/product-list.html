@@ -1,1 +1,8 @@
-<p>product-list works!</p>
+<h1 style="margin-left: 10px">Wszystkie produkty</h1>
+
+@for (product of app.products; track product.id) {
+  <app-product-item
+    [product]="product"
+    (addToCart)="app.handleAddToCart($event)"
+  ></app-product-item>
+}

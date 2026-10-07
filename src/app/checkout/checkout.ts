@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [FormsModule],
   selector: 'app-checkout',
   styleUrl: '../app.scss',
-  template: `
-    <div id="cart" style="width: 300px;">
-      <h2>Płatność</h2>
-      <p>Dokoncz zamówienie</p>
-      <button id="addBtn" (click)="pay()">Zapłać</button>
-    </div>
-  `,
+  templateUrl: 'checkout.html',
 })
 export class Checkout {
   constructor(private router: Router) {}
@@ -24,4 +19,6 @@ export class Checkout {
       this.router.navigate(['/summary']);
     }
   }
+
+  paymentMethod: string = 'blik';
 }

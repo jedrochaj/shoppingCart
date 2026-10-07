@@ -29,7 +29,7 @@
   justify-content: center;
   background-color: rgb(38, 38, 38);
   color: rgb(239, 239, 239);
-  width: 25%;
+  width: 30%;
   border-radius: 8px;
   box-shadow: 5px 5px 0 0 rgb(50, 50, 50);
   margin: 10px;
@@ -46,4 +46,22 @@
 #removeBtn:hover {
   cursor: pointer;
   background-color: rgb(224, 222, 222);
+}
+#routerBtn {
+  background-color: rgb(21, 21, 21);
+  color: rgb(228, 228, 228);
+  border-radius: 13px;
+  border: 1px solid black;
+  cursor: pointer;
+  width: 100px;
+  height: 25px;
+  font-size: 105%;
+}
+input {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 4px;
+}
+.productImg:hover {
+  width: 80%;
 }

@@ -1,17 +1,13 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductItem } from '../product-item/product-item';
+import { App } from '../app';
 
 @Component({
   selector: 'app-product-list',
   imports: [ProductItem],
   styleUrl: '../app.scss',
-  template: `
-    @for (product of products; track product.id) {
-      <app-product-item [product]="product" (addToCart)="addToCart.emit($event)"></app-product-item>
-    }
-  `,
+  templateUrl: './product-list.html',
 })
 export class ProductList {
-  @Input() products: any[] = [];
-  @Output() addToCart = new EventEmitter<any>();
+  constructor(public app: App) {}
 }
