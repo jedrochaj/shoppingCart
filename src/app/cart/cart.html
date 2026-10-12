@@ -1,17 +1,23 @@
-<div id="cart" style="width: 300px">
+<div id="cart">
   <h2>Koszyk</h2>
+
   @if (app.cartItems.length === 0) {
     <p>Koszyk jest pusty</p>
   } @else {
-    @for (item of app.cartItems; track $index) {
-      <p>
-        {{ item.name }} {{ item.price }} zł
-        <button (click)="app.handleRemoveFromCart($index)" id="removeBtn">Usuń</button>
-      </p>
+    @for (item of app.cartItems; track item.id; let i = $index) {
+      <div>
+        <span>{{ item.name }} - {{ item.price }} zł</span>
+
+        <div>
+          <button id="removeBtn" (click)="app.decreaseQuantity(i)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button id="addBtn" (click)="app.increaseQuantity(i)">+</button>
+          <button id="removeBtn" (click)="app.handleRemoveFromCart(i)">Usuń</button>
+        </div>
+      </div>
     }
+
     <p>Razem: {{ getTotal() }} zł</p>
-    <button id="addBtn" routerLink="/checkout" style="margin-top: 10px">
-      Przejdź do płatności
-    </button>
+    <button id="addBtn" routerLink="/checkout">Przejdź do płatności</button>
   }
 </div>

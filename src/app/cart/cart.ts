@@ -12,6 +12,6 @@ export class Cart {
   constructor(public app: App) {}
 
   getTotal(): number {
-    return this.app.cartItems.reduce((sum, item) => sum + item.price, 0);
+    return this.app.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }
 }

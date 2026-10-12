@@ -50,7 +50,24 @@ export class App {
   cartItems: any[] = [];
 
   handleAddToCart(product: any): void {
-    this.cartItems = [...this.cartItems, product];
+    const existingItem = this.cartItems.find((item) => item.id === product.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      this.cartItems.push({ ...product, quantity: 1 });
+    }
+  }
+
+  increaseQuantity(index: number): void {
+    this.cartItems[index].quantity += 1;
+  }
+
+  decreaseQuantity(index: number): void {
+    if (this.cartItems[index].quantity > 1) {
+      this.cartItems[index].quantity -= 1;
+    } else {
+      this.handleRemoveFromCart(index);
+    }
   }
 
   handleRemoveFromCart(index: number): void {
