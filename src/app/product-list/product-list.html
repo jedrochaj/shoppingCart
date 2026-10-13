@@ -1,6 +1,6 @@
-<h1 style="margin-left: 10px">Wszystkie produkty</h1>
+<h1 style="margin-left: 20px">Wszystkie produkty</h1>
 
-<swiper-container slides-per-view="4" speed="100" loop="true" navigation="true">
+<swiper-container slides-per-view="2" speed="300" loop="true" navigation="true" pagination="true">
   @for (product of app.products; track product.id) {
     <swiper-slide>
       <app-product-item

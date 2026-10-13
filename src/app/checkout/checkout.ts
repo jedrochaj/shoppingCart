@@ -9,16 +9,18 @@ import { Router } from '@angular/router';
   templateUrl: 'checkout.html',
 })
 export class Checkout {
+  paymentMethod: string = 'blik';
+  errorMessage: string = '';
+
   constructor(private router: Router) {}
 
   pay(): void {
-    const isError = Math.random() < 0.2;
+    this.errorMessage = '';
+    const isError = Math.random() < 0.3;
     if (isError) {
-      alert('Wystapil blad');
+      this.errorMessage = 'Wystąpił błąd. Spróbuj ponownie';
     } else {
       this.router.navigate(['/summary']);
     }
   }
-
-  paymentMethod: string = 'blik';
 }

@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(116, 116, 116);
-  width: 30%px;
+  width: 430px;
+  height: 520px;
   border-radius: 8px;
   box-shadow: 5px 5px 0 0 rgb(50, 50, 50);
   margin: 10px;
@@ -32,7 +33,7 @@
   width: 30%;
   border-radius: 8px;
   box-shadow: 5px 5px 0 0 rgb(50, 50, 50);
-  margin: 10px;
+  margin-left: 20px;
   padding: 9px;
   padding-top: 0px;
 }
@@ -63,5 +64,16 @@ input {
   margin: 4px;
 }
 .productImg:hover {
-  width: 80%;
+  width: 70%;
+}
+swiper-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
