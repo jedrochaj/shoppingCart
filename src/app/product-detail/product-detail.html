@@ -1,21 +1,38 @@
-<div style="padding: 20px">
+<div style="padding: 20px; max-width: 600px; margin: 0 auto">
   <button routerLink="/products" id="addBtn" style="margin-bottom: 20px">
-    Powrót do produktów
+    ← Powrót do produktów
   </button>
 
   @if (product) {
-    <div id="product" style="max-width: 400px; margin: 0 auto; text-align: center">
-      <img [src]="product.image" width="70%" style="margin-top: 10px" class="productImg" />
-      <h2>{{ product.name }}</h2>
-      <p style="font-size: 90%; text-align: center">{{ product.description }}</p>
-      <p style="color: gold; font-size: 120%">{{ product.rating }}</p>
-      <p style="font-size: 120%; font-weight: bold">Cena: {{ product.price }} zł</p>
+    <div id="product" style="padding: 20px; text-align: center">
+      <div style="max-width: 280px; margin: 0 auto; display: inline-block">
+        <div class="image-frame iiz" #zoomFrame style="width: 100%">
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            style="width: 100%; height: auto; display: block; border-radius: 8px"
+          />
+        </div>
+      </div>
 
-      <button id="addBtn" (click)="app.handleAddToCart(product)" style="margin-top: 10px">
+      <h2 style="margin-top: 20px">{{ product.name }}</h2>
+      <p style="font-size: 90%; color: #bbb; line-height: 1.4; max-width: 400px; margin: 10px auto">
+        {{ product.description }}
+      </p>
+      <p style="color: gold; font-size: 120%; margin: 10px 0">{{ product.rating }}</p>
+      <p style="font-size: 130%; font-weight: bold; margin-bottom: 15px">
+        Cena: {{ product.price }} zł
+      </p>
+
+      <button
+        id="addBtn"
+        (click)="app.handleAddToCart(product)"
+        style="width: 100%; max-width: 300px; margin-top: 10px"
+      >
         Dodaj do koszyka
       </button>
     </div>
   } @else {
-    <p style="text-align: center">Nie znaleziono produktu.</p>
+    <p style="text-align: center">Nie znaleziono takiego produktu.</p>
   }
 </div>
