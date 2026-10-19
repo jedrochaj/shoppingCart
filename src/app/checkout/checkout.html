@@ -1,41 +1,39 @@
-<div id="cart" style="width: 300px">
+<form [formGroup]="checkoutForm" (ngSubmit)="pay()" id="cart" style="width: 300px">
   <h2>Płatność</h2>
-  <input type="text" placeholder="Imię" required />
-  <input type="text" placeholder="Nazwisko" required />
-  <input type="text" placeholder="Adres dostawy" required />
+
+  <input type="text" placeholder="Imię" formControlName="firstName" />
+  <input type="text" placeholder="Nazwisko" formControlName="lastName" />
+  <input type="text" placeholder="Adres dostawy" formControlName="address" />
 
   <label style="cursor: pointer">
-    <input
-      type="radio"
-      name="method"
-      [checked]="paymentMethod === 'blik'"
-      (change)="paymentMethod = 'blik'"
-      required
-    />
+    <input type="radio" value="blik" formControlName="paymentMethod" />
     BLIK
   </label>
   <label style="cursor: pointer">
-    <input
-      type="radio"
-      name="method"
-      [checked]="paymentMethod === 'card'"
-      (change)="paymentMethod = 'card'"
-      required
-    />
+    <input type="radio" value="card" formControlName="paymentMethod" />
     Karta
   </label>
 
   @if (paymentMethod === 'blik') {
-    <input type="text" placeholder="Kod blik" />
+    <input type="text" placeholder="Kod BLIK (6 cyfr)" formControlName="blikCode" />
   } @else {
-    <input type="text" placeholder="Numer karty" />
+    <input type="text" placeholder="Numer karty (16 cyfr)" formControlName="cardNumber" />
   }
 
-  <button id="addBtn" (click)="pay()" style="margin-top: 10px">Zapłać</button>
+  <button
+    id="addBtn"
+    type="submit"
+    [disabled]="checkoutForm.invalid"
+    [style.opacity]="checkoutForm.invalid ? 0.5 : 1"
+    [style.cursor]="checkoutForm.invalid ? 'not-allowed' : 'pointer'"
+    style="margin-top: 10px"
+  >
+    Zapłać
+  </button>
 
   @if (errorMessage) {
-    <p style="color: rgb(255, 46, 46); font-size: 90%; text-align: center; margin-top: 10px">
+    <p style="color: rgb(255, 100, 100); font-size: 90%; text-align: center; margin-top: 10px">
       {{ errorMessage }}
     </p>
   }
-</div>
+</form>
