@@ -1,3 +1,9 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</head>
 <div id="cart">
   <h2>Koszyk</h2>
 
@@ -11,8 +17,10 @@
         <div>
           <button id="removeBtn" (click)="app.decreaseQuantity(i)">-</button>
           <span>{{ item.quantity }}</span>
-          <button id="addBtn" (click)="app.increaseQuantity(i)">+</button>
-          <button id="removeBtn" (click)="app.handleRemoveFromCart(i)">Usuń</button>
+          <button id="removeBtn" (click)="app.increaseQuantity(i)">+</button>
+          <button id="removeBtn" (click)="app.handleRemoveFromCart(i)">
+            Usuń <i class="fa fa-trash-o" style="font-weight: bold"></i>
+          </button>
         </div>
       </div>
     }

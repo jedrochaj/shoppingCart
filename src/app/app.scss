@@ -43,6 +43,7 @@
   background-color: rgb(193, 193, 193);
   font-weight: bold;
   color: rgb(50, 50, 50);
+  margin: 3px;
 }
 #removeBtn:hover {
   cursor: pointer;
@@ -62,9 +63,6 @@ input {
   border-radius: 10px;
   padding: 5px;
   margin: 4px;
-}
-.productImg:hover {
-  width: 70%;
 }
 swiper-container {
   width: 100%;
