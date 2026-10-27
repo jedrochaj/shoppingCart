@@ -3,26 +3,22 @@
   <p style="color: lightgreen; font-weight: bold">Zamówienie złożone pomyślnie!</p>
 
   <h3>Zakupione produkty:</h3>
-  @if (app.cartItems.length === 0) {
-    <p>Brak produktów w podsumowaniu</p>
-  } @else {
-    @for (item of app.cartItems; track item.id) {
-      <div
-        style="
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          font-size: 90%;
-          margin-bottom: 5px;
-        "
-      >
-        <span>{{ item.name }} (x{{ item.quantity }})</span>
-        <span>{{ item.price * item.quantity }} zł</span>
-      </div>
-    }
-    <hr style="width: 100%; border: 0.5px solid #555; margin: 10px 0" />
-    <p style="font-weight: bold">Zaplacono: {{ getTotal() }} zł</p>
+  @for (item of app.cartItems; track item.id) {
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 90%;
+        margin-bottom: 5px;
+      "
+    >
+      <span>{{ item.name }} (x{{ item.quantity }})</span>
+      <span>{{ item.price * item.quantity }} zł</span>
+    </div>
   }
+  <hr style="width: 100%; border: 0.5px solid #555; margin: 10px 0" />
+  <p style="font-weight: bold">Zaplacono: {{ getTotal() }} zł</p>
 
   <button id="addBtn" routerLink="/products" style="margin-top: 15px">Powrót do sklepu</button>
 </div>

@@ -12,7 +12,7 @@ export class App {
     {
       id: 1,
       name: 'Klawiatura',
-      price: 199,
+      price: 199.99,
       image: '/images/klawiatura.png',
       description:
         'Klawiatura to urządzenie z przyciskami służące do pisania i sterowania komputerem.',
@@ -21,8 +21,8 @@ export class App {
     {
       id: 2,
       name: 'Mysz',
-      price: 99,
-      image: '/images/myszka.png',
+      price: 99.99,
+      image: '/images/mysz.png',
       description:
         'Mysz komputerowa to urządzenie wskazujące, które pozwala poruszać kursorem po ekranie poprzez przesuwanie go po płaskiej powierzchni.',
       rating: '★★☆☆☆ (89)',
@@ -30,7 +30,7 @@ export class App {
     {
       id: 3,
       name: 'Monitor',
-      price: 899,
+      price: 899.99,
       image: '/images/monitor.png',
       description:
         'Monitor to ekran wyświetlający obraz, teksty i programy uruchomione na komputerze.',
@@ -39,11 +39,28 @@ export class App {
     {
       id: 4,
       name: 'Słuchawki',
-      price: 149,
+      price: 149.99,
       image: '/images/sluchawki.png',
       description:
         'Słuchawki to urządzenie audio, które pozwala słuchać dźwięków bezpośrednio z komputera lub telefonu.',
       rating: '★★★★☆ (103)',
+    },
+    {
+      id: 5,
+      name: 'Kabel HDMI',
+      price: 29.99,
+      image: '/images/hdmi.png',
+      description:
+        'Kabel HDMI służy do cyfrowego przesyłania obrazu i dźwięku wysokiej jakości między urządzeniami.',
+      rating: '★★★★★ (142)',
+    },
+    {
+      id: 6,
+      name: 'Podkładka pod mysz',
+      price: 54.99,
+      image: '/images/podkladka.png',
+      description: 'Duża podkładka pod mysz i klawiaturę z gładką powierzchnią.',
+      rating: '★★★★☆ (91)',
     },
   ];
 
@@ -72,5 +89,9 @@ export class App {
 
   handleRemoveFromCart(index: number): void {
     this.cartItems = this.cartItems.filter((_, i) => i !== index);
+  }
+
+  getTotalItemsCount(): number {
+    return this.cartItems.reduce((sum, item) => sum + item.quantity, 0);
   }
 }

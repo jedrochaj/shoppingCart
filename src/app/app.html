@@ -1,5 +1,5 @@
 <nav style="margin: 20px; display: flex; gap: 15px">
   <button routerLink="/products" id="routerBtn">Produkty</button>
-  <button routerLink="/cart" id="routerBtn">Koszyk</button>
+  <button routerLink="/cart" id="routerBtn">Koszyk ({{ getTotalItemsCount() }})</button>
 </nav>
 <router-outlet></router-outlet>
